@@ -17,13 +17,21 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	var/nanoui_items[0]
 	// List of items not to shove in their hands.
 	var/list/NotInHand = list(/obj/machinery/singularity_beacon/syndicate)
-
+	var/chem_items = {"Whitespace:Seperator;
+Chemist's Items;
+/obj/item/device/lightreplacer:3:Light replacer;
+"}
 /obj/item/device/uplink/New()
 	welcome = ticker.mode.uplink_welcome
 	if(!item_data)
 		items = replacetext(ticker.mode.uplink_items, "\n", "")	// Getting the text string of items
 	else
 		items = replacetext(item_data)
+	for(var/mob/living/carbon/M in range(0))
+		if(src.loc == M)
+			if(M.job == "Chemist")
+				items = addtext(items, chem_items)
+
 	ItemList = text2list(src.items, ";")	// Parsing the items text string
 	uses = ticker.mode.uplink_uses
 	nanoui_items = generate_nanoui_items()
@@ -31,6 +39,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 		var/list/O = text2list(D, ":")
 		if(O.len>0)
 			valid_items += O[1]
+
 
 
 
