@@ -46,12 +46,7 @@
 	world << "<B>There are Vampires from Space Transylvania on the station, keep your blood close and neck safe!</B>"
 
 /datum/game_mode/vampire/pre_setup()
-	// mixed mode scaling
-/*	if(istype(ticker.mode, /datum/game_mode/mixed)) //no mixed mode here - scrdest
-		mixed = 1
-	if(mixed)
-		recommended_enemies = 2
-		required_enemies = 1 */
+
 	if(config.protect_roles_from_antagonist)
 		restricted_jobs += protected_jobs
 

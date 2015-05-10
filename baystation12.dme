@@ -1373,6 +1373,8 @@
 #include "code\modules\telesci\telesci_computer.dm"
 #include "code\modules\urist\area&turf\areas.dm"
 #include "code\modules\urist\area&turf\turfs.dm"
+#include "code\modules\urist\gamemodes\plague\plague.dm"
+#include "code\modules\urist\gamemodes\plague\plaguepowers.dm"
 #include "code\modules\urist\gamemodes\vampire\traitorpire.dm"
 #include "code\modules\urist\gamemodes\vampire\vampire.dm"
 #include "code\modules\urist\gamemodes\vampire\vampire_powers.dm"
