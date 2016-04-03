@@ -217,3 +217,60 @@ the sprite and make my own projectile -Glloyd*/
 	if(istype(A, /obj/item/ammo_magazine))
 		flick("deckard-reloading",src)
 	..()
+
+
+/obj/item/weapon/gun/projectile/rifle
+	urist_only = 1
+	name = "rifle"
+	desc = "A long, semi-automatic, accurate firearm."
+	icon_state = "c20r"
+	item_state = "SVD"
+	icon = 'icons/urist/events/train.dmi'
+	force = 10 //still a massive wooden club in its own right
+	caliber = "7.62mm"
+	ammo_type = "/obj/item/ammo_casing/a762mm"
+	magazine_type = /obj/item/ammo_magazine/a762mm
+	slot_flags = SLOT_BACK
+	load_method = MAGAZINE
+	zoomdevicename = "iron sights"
+	auto_eject = 0
+	accuracy = 0
+	scoped_accuracy = 1
+	handle_casings = EJECT_CASINGS
+
+/obj/item/weapon/gun/projectile/rifle/boltaction
+	name = "bolt-action rifle"
+	desc = "A long, bolt-action, accurate firearm."
+	handle_casings = HOLD_CASINGS
+	var/recentpump = 0 // to prevent spammage
+
+/obj/item/weapon/gun/projectile/rifle/verb/scope()
+	set category = "Object"
+	set name = "Use Iron Sights"
+	set popup_menu = 1
+
+	toggle_scope(1.5) //worse than a scope for long-range, because duh
+
+/obj/item/weapon/gun/projectile/rifle/boltaction/consume_next_projectile() //copypasta as fuck
+	if(chambered)
+		return chambered.BB
+	return null
+
+/obj/item/weapon/gun/projectile/rifle/boltaction/attack_self(mob/living/user as mob)
+	if(world.time >= recentpump + 10)
+		pump(user)
+		recentpump = world.time
+
+/obj/item/weapon/gun/projectile/rifle/boltaction/proc/pump(mob/M as mob)
+	playsound(M, 'sound/weapons/shotgunpump.ogg', 60, 1)
+
+	if(chambered)//We have a shell in the chamber
+		chambered.loc = get_turf(src)//Eject casing
+		chambered = null
+
+	if(loaded.len)
+		var/obj/item/ammo_casing/AC = loaded[1] //load next casing.
+		loaded -= AC //Remove casing from loaded list.
+		chambered = AC
+
+	update_icon()

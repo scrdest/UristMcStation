@@ -1766,6 +1766,7 @@
 #include "code\modules\urist\modules\uristscience.dm"
 #include "code\modules\urist\modules\carpentry\planer.dm"
 #include "code\modules\urist\modules\carpentry\tools.dm"
+#include "code\modules\urist\modules\eras\oldwest.dm"
 #include "code\modules\urist\modules\genetics\_genetics.dm"
 #include "code\modules\urist\modules\genetics\disabilities.dm"
 #include "code\modules\urist\modules\genetics\powers.dm"
