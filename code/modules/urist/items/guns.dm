@@ -467,7 +467,7 @@ the sprite and make my own projectile -Glloyd*/
 	name = "improvised rifle"
 	icon = 'icons/urist/items/guns.dmi'
 	desc = "A shoddy 7.62 improvised rifle."
-	wielded_item_state = "gun_wielded"
+	wielded_item_state = "woodarifle-wielded"
 	icon_state = "308bolt"
 	item_state = "dshotgun" //placeholder
 	w_class = 5
@@ -492,8 +492,8 @@ the sprite and make my own projectile -Glloyd*/
 	icon_state = "308boltsawed"
 	item_state = "sawnshotgun" //placeholder
 	w_class = 4
-	requires_two_hands = 1
-	force = 10
+	requires_two_hands = 0
+	force = 4
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	origin_tech = "combat=2;syndicate=1"
 	caliber = "a762"
