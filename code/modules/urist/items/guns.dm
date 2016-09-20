@@ -474,7 +474,7 @@ the sprite and make my own projectile -Glloyd*/
 	requires_two_hands = 4
 	force = 10
 	slot_flags = SLOT_BACK
-	origin_tech = "combat=4;materials=1;syndicate=2"
+	origin_tech = "combat=2;materials=1"
 	caliber = "a762"
 	//fire_sound = 'sound/weapons/sniper.ogg'
 	handle_casings = HOLD_CASINGS
@@ -495,7 +495,7 @@ the sprite and make my own projectile -Glloyd*/
 	requires_two_hands = 0
 	force = 4
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	origin_tech = "combat=2;syndicate=1"
+	origin_tech = "combat=1"
 	caliber = "a762"
 	//fire_sound = 'sound/weapons/sniper.ogg'
 	handle_casings = HOLD_CASINGS
