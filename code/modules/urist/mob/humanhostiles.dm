@@ -150,3 +150,91 @@
 	..()
 	new /obj/effect/effect/smoke/bad(loc)
 	qdel(src)
+
+//Commanded mobs, for a little more complexity.
+
+/mob/living/simple_animal/hostile/commanded/urist
+	name = "mercenary"
+	desc = "A hired gun, his only loyalty is to his employer and his teammates."
+	ranged = 1
+	ranged_cooldown_cap = 5
+	rapid = 1
+	icon = 'icons/mob/animal.dmi'
+	icon_state = "syndicateranged"
+	icon_living = "syndicateranged"
+	casingtype = /obj/item/ammo_casing/a10mm
+	projectilesound = 'sound/weapons/gunshot/gunshot_smg.ogg'
+	projectiletype = /obj/item/projectile/bullet/pistol/medium
+	maxHealth = 100
+	health = 100
+	retribution = 1
+	simplify_dead_icon = 1
+	minimum_distance = 6
+	retreat_distance = 2
+	stat_attack = 1
+	attack_same = 1
+	attacktext = "struck"
+	var/verbal = 1 //Will confirm orders.
+	var/confirmtext = list("Roger", "Will do", "Copy", "On it")
+	density = 1
+
+/mob/living/simple_animal/hostile/commanded/urist/New()
+	..()
+	add_language("Galactic Common")
+	default_language = all_languages["Galactic Common"]
+
+/mob/living/simple_animal/hostile/commanded/urist/stay_command(var/mob/speaker,var/text)
+	. = ..()
+	if((.) && verbal)
+		say("[pick(confirmtext) + pick(".", "!")]")
+
+/mob/living/simple_animal/hostile/commanded/urist/stop_command(var/mob/speaker,var/text)
+	. = ..()
+	if((.) && verbal)
+		say("[pick(confirmtext) + pick(".", "!")]")
+
+/mob/living/simple_animal/hostile/commanded/urist/follow_command(var/mob/speaker,var/text)
+	. = ..()
+	if((.) && verbal)
+		say("[pick(confirmtext) + pick(".", "!")]")
+
+/mob/living/simple_animal/hostile/commanded/urist/attack_command(var/mob/speaker,var/text)
+	. = ..()
+	if((.) && verbal)
+		say("[pick(confirmtext) + pick(".", "!")]")
+
+/mob/living/simple_animal/hostile/commanded/urist/merc
+
+/mob/living/simple_animal/hostile/commanded/urist/merc/New()
+	name = random_name(MALE)
+	..()
+
+/mob/living/simple_animal/hostile/commanded/urist/attackdog
+	name = "attack dog"
+	desc = "A trained attack dog."
+	ranged = 0
+	icon = 'icons/mob/animal.dmi'
+	icon_state = "corgi" //hilarious placeholder
+	icon_living = "corgi"
+	casingtype = /obj/item/ammo_casing/a10mm
+	projectilesound = 'sound/weapons/gunshot/gunshot_smg.ogg'
+	projectiletype = /obj/item/projectile/bullet/pistol/medium
+	maxHealth = 40
+	health = 40
+	retribution = 1
+	minimum_distance = 0
+	verbal = 0
+	attacktext = "bit"
+	confirmtext = list("Woof")
+
+/mob/proc/SpawnNPCMercTeam(var/size = 4)//var/mob/living/commander, var/size = 4)
+	var/mob/commander = src
+	var/list/team = new()
+	team.Add(commander)
+	var/uniquefaction = pick("a","b","c","d") + "[rand(999)]"
+	for(var/i=0, i<size, i++)
+		var/mob/living/simple_animal/hostile/commanded/urist/merc/teammate = new /mob/living/simple_animal/hostile/commanded/urist/merc(commander.loc)
+		team.Add(teammate)
+		teammate.faction = uniquefaction
+	for(var/mob/living/simple_animal/hostile/dude in team)
+		dude.friends = dude.friends + team
