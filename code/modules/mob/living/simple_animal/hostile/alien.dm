@@ -33,6 +33,7 @@
 	status_flags = CANPUSH
 	minbodytemp = 0
 	heat_damage_per_tick = 20
+	var/corpse = /mob/living/carbon/human/xdrone
 
 
 /mob/living/simple_animal/hostile/alien/drone
@@ -55,6 +56,7 @@
 	ranged = 1
 	projectiletype = /obj/item/projectile/neurotox
 	projectilesound = 'sound/weapons/pierce.ogg'
+	corpse = /mob/living/carbon/human/xsentinel
 
 
 /mob/living/simple_animal/hostile/alien/queen
@@ -72,6 +74,7 @@
 	projectilesound = 'sound/weapons/pierce.ogg'
 	rapid = 2
 	status_flags = 0
+	corpse = /mob/living/carbon/human/xqueen
 
 /mob/living/simple_animal/hostile/alien/queen/large
 	name = "alien empress"
@@ -82,6 +85,7 @@
 	move_to_delay = 4
 	maxHealth = 400
 	health = 400
+	corpse = null
 
 /obj/item/projectile/neurotox
 	damage = 30
@@ -89,8 +93,15 @@
 
 /mob/living/simple_animal/hostile/alien/death()
 	..()
-	visible_message("[src] lets out a waning guttural screech, green blood bubbling from its maw...")
-	playsound(src, 'sound/voice/hiss6.ogg', 100, 1)
+	if(corpse)
+		if(ispath(corpse,/mob/living))
+			var/mob/living/corpsemob = corpse
+			new corpsemob(src.loc)
+			corpsemob.death()
+			qdel(src)
+	else
+		visible_message("[src] lets out a waning guttural screech, green blood bubbling from its maw...")
+		playsound(src, 'sound/voice/hiss6.ogg', 100, 1)
 
 // Xenoarch aliens.
 /mob/living/simple_animal/hostile/samak
