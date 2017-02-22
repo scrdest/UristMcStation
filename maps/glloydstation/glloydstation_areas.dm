@@ -910,7 +910,7 @@ area/rnd/test_area
 	icon_state = "server"
 
 /area/rnd/electrical_engineering
-	name = "\improper Electrical Engineering"
+	name = "\improper Electrical Engineering Lab"
 	icon_state = "toxlab"
 
 //Storage
