@@ -471,26 +471,6 @@
 	name = "\improper Escape Shuttle Hallway"
 	icon_state = "escape"
 
-/area/hallway/secondary/entry/pods
-	name = "\improper Arrival Shuttle Hallway - Escape Pods"
-	icon_state = "entry_pods"
-
-/area/hallway/secondary/entry/fore
-	name = "\improper Arrival Shuttle Hallway - Fore"
-	icon_state = "entry_1"
-
-/area/hallway/secondary/entry/port
-	name = "\improper Arrival Shuttle Hallway - Port"
-	icon_state = "entry_2"
-
-/area/hallway/secondary/entry/starboard
-	name = "\improper Arrival Shuttle Hallway - Starboard"
-	icon_state = "entry_3"
-
-/area/hallway/secondary/entry/aft
-	name = "\improper Arrival Shuttle Hallway - Aft"
-	icon_state = "entry_4"
-
 // Command
 
 /area/crew_quarters/captain
@@ -639,22 +619,6 @@
 	icon_state = "medbay"
 	ambience = list('sound/ambience/signal.ogg')
 
-//Medbay is a large area, these additional areas help level out APC load.
-/area/medical/medbay2
-	name = "\improper Medbay Hallway - Starboard"
-	icon_state = "medbay2"
-	ambience = list('sound/ambience/signal.ogg')
-
-/area/medical/medbay3
-	name = "\improper Medbay Hallway - Fore"
-	icon_state = "medbay3"
-	ambience = list('sound/ambience/signal.ogg')
-
-/area/medical/medbay4
-	name = "\improper Medbay Hallway - Aft"
-	icon_state = "medbay4"
-	ambience = list('sound/ambience/signal.ogg')
-
 /area/medical/reception
 	name = "\improper Medbay Reception"
 	icon_state = "medbay"
@@ -722,10 +686,6 @@
 /area/security/brig/interrogation
 	name = "\improper Security - Interrogation"
 	icon_state = "brig"
-
-/area/security/brig/solitaryA
-	name = "\improper Security - Solitary"
-	icon_state = "sec_prison"
 
 /area/security/brig/prison_break()
 	for(var/obj/structure/closet/secure_closet/brig/temp_closet in src)
@@ -1152,26 +1112,6 @@ area/rnd/test_area
 	name = "\improper Construction Area"
 	icon_state = "construction"
 
-/area/hallway/secondary/entry/pods
-	name = "\improper Arrival Shuttle Hallway - Escape Pods"
-	icon_state = "entry_pods"
-
-/area/hallway/secondary/entry/fore
-	name = "\improper Arrival Shuttle Hallway - Fore"
-	icon_state = "entry_1"
-
-/area/hallway/secondary/entry/port
-	name = "\improper Arrival Shuttle Hallway - Port"
-	icon_state = "entry_2"
-
-/area/hallway/secondary/entry/starboard
-	name = "\improper Arrival Shuttle Hallway - Starboard"
-	icon_state = "entry_3"
-
-/area/hallway/secondary/entry/aft
-	name = "\improper Arrival Shuttle Hallway - Aft"
-	icon_state = "entry_4"
-
 /area/crew_quarters/courtroom
 	name = "\improper Courtroom"
 	icon_state = "courtroom"
@@ -1235,22 +1175,6 @@ area/rnd/test_area
 /area/crew_quarters/cafeteria
 	name = "\improper Cafeteria"
 	icon_state = "cafeteria"
-
-/area/prison/solitary
-	name = "Solitary Confinement"
-	icon_state = "brig"
-
-/area/prison/cell_block/A
-	name = "Prison Cell Block A"
-	icon_state = "brig"
-
-/area/prison/cell_block/B
-	name = "Prison Cell Block B"
-	icon_state = "brig"
-
-/area/prison/cell_block/C
-	name = "Prison Cell Block C"
-	icon_state = "brig"
 
 /area/crew_quarters/theatre
 	name = "\improper Theatre"
