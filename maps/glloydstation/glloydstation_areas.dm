@@ -1014,12 +1014,16 @@ area/rnd/test_area
 	name = "\improper Courtroom"
 	icon_state = "courtroom"
 
-/area/turret_protected/aisat
-	name = "\improper AI Satellite"
+/area/turret_protected/aisat_interior
+	name = "\improper AI Satellite Foyer"
 	icon_state = "ai"
 
-/area/turret_protected/aisat_interior
-	name = "\improper AI Satellite"
+/area/turret_protected/aisat_stationside
+	name = "\improper AI Satellite Station Entrance"
+	icon_state = "ai"
+
+/area/turret_protected/aisat_eva
+	name = "\improper AI Satellite EVA Entrance"
 	icon_state = "ai"
 
 /area/turret_protected/AIsatextFP
@@ -1049,26 +1053,6 @@ area/rnd/test_area
 /area/turret_protected/NewAIMain
 	name = "\improper AI Main New"
 	icon_state = "storage"
-
-/area/turret_protected/tcomsat
-	name = "\improper Telecoms Satellite"
-	icon_state = "tcomsatlob"
-	ambience = list('sound/ambience/ambisin2.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/ambigen10.ogg')
-
-/area/turret_protected/tcomfoyer
-	name = "\improper Telecoms Foyer"
-	icon_state = "tcomsatentrance"
-	ambience = list('sound/ambience/ambisin2.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/ambigen10.ogg')
-
-/area/turret_protected/tcomwest
-	name = "\improper Telecommunications Satellite West Wing"
-	icon_state = "tcomsatwest"
-	ambience = list('sound/ambience/ambisin2.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/ambigen10.ogg')
-
-/area/turret_protected/tcomeast
-	name = "\improper Telecommunications Satellite East Wing"
-	icon_state = "tcomsateast"
-	ambience = list('sound/ambience/ambisin2.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/ambigen10.ogg')
 
 /area/crew_quarters/cafeteria
 	name = "\improper Cafeteria"
