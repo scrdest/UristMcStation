@@ -1008,6 +1008,7 @@ area/rnd/test_area
 
 /area/turret_protected/aisat_interior
 	name = "\improper AI Satellite Foyer"
+
 	icon_state = "ai"
 
 /area/turret_protected/aisat_stationside
@@ -1017,7 +1018,6 @@ area/rnd/test_area
 /area/turret_protected/aisat_eva
 	name = "\improper AI Satellite EVA Entrance"
 	icon_state = "ai"
-
 /area/crew_quarters/cafeteria
 	name = "\improper Cafeteria"
 	icon_state = "cafeteria"
